@@ -1,0 +1,70 @@
+.weekly-tasks-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #f6efff;
+  min-height: 100vh;
+}
+
+.weekly-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.weekly-header-2 h1 {
+  text-align: center;
+    margin-bottom: 20px;
+    color: #5e2d79;
+}
+
+.home-btn {
+  padding: 10px 20px;
+  background: #d1aaff;
+  border: 2px solid #a87ee6;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  box-shadow: 0 3px 6px rgba(128, 0, 255, 0.2);
+  text-decoration: none;
+}
+
+.weekly-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr) auto;
+  grid-template-rows: repeat(3, auto);
+  gap: 20px;
+  align-items: start;
+}
+
+.day-column, .weekly-goals, .calendar-section {
+  border: 1px solid #d5bfff;
+  border-radius: 8px;
+  padding: 15px;
+  background-color: #ede1ff;
+}
+
+.day-column h3,
+.weekly-goals h3,
+.calendar-section h3 {
+  font-size: 20px;
+  background-color: #c8a5ff;
+  padding: 6px 12px;
+  border-radius: 8px;
+  color: #3a125c;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.weekly-goals {
+  grid-column: 4 / 5;
+  grid-row: 1 / span 3;
+}
+
+.calendar-section {
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
+  text-align: center;
+}

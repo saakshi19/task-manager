@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from "react-router-dom";
 import "./TaskManager.css";
+import WeeklyTasks from "./WeeklyTasks";
 
 const initialTasks = [
   { id: 1, title: "Submit project", dueDate: "2025-06-25", status: "OVER_DUE" },
@@ -141,6 +142,7 @@ function Home() {
       <h1>Task Manager</h1>
       <Link to="/tasks" className="home-btn">View Tasks</Link>
       <Link to="/add" className="home-btn">Add New Task</Link>
+      <Link to="/weekly" className="home-btn">Weekly Tasks</Link>
     </div>
   );
 }
@@ -161,6 +163,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/tasks" element={<MyTasks tasks={tasks} setTasks={setTasks} />} />
         <Route path="/add" element={<NewTaskForm addTask={addTask} />} />
+        <Route path="/weekly" element={<WeeklyTasks />} />
       </Routes>
     </Router>
   );
