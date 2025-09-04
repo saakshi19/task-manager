@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/manager")
+@CrossOrigin(origins = "http://localhost:3000")  // allow frontend
 public class TaskController {
 
     private final TaskService taskService;
@@ -35,8 +36,12 @@ public class TaskController {
         return ResponseEntity.ok(taskService.addTask(task));
     }
 
-    @PostMapping("task/update")
-    public ResponseEntity<String> updateTask(@RequestBody Task task) {
-        return ResponseEntity.ok("No task updated!");
+    @PutMapping("/task")
+    public ResponseEntity<Task> updateTask(
+            @RequestBody Task updatedTask
+    ) {
+        Task task = taskService.updateTask(updatedTask);
+        return ResponseEntity.ok(task);
     }
+
 }

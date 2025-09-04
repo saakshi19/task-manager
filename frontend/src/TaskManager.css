@@ -7,14 +7,31 @@ body {
   padding: 20px;
 }
 
+.background-container {
+  background-image: url('../../frontend/public/purple_background.jpg'); /* Relative path to your image */
+  background-size: cover; /* Ensures the image covers the entire element */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents image repetition */
+  min-height: 100%; /* Ensures the container takes full viewport height */
+}
+
 .task-manager {
   text-align: center;
+  background-color: #b096e3;
+  font-family: "Comic Sans MS", sans-serif;
+
+    background-image: url('../../frontend/public/123.png'); /* Relative path to your image */
+    background-size: cover; /* Ensures the image covers the entire element */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents image repetition */
+    min-height: 100%; /* Ensures the container takes full viewport height */
 }
 
 .task-manager h1 {
   font-size: 36px;
   margin-bottom: 30px;
-  color: #8b5cf6;
+  color: #41237a;
+  font-family: "Comic Sans MS", sans-serif;
 }
 
 .task-board {
@@ -33,27 +50,27 @@ body {
 }
 
 .task-column.overdue {
-  background-color: #f87171;
-  border: 2px solid #dc2626;
+  background-color: #c71585;
+  border: 2px solid #41237a;
 }
 
 .task-column.in-progress {
-  background-color: #facc15;
-  border: 2px solid #d97706;
+  background-color: #c7b515;
+  border: 2px solid #41237a;
 }
 
 .task-column.not-started {
   background-color: #e9d5ff;
-  border: 2px solid #a855f7;
+  border: 2px solid #41237a;
 }
 
 .task-column.completed {
-  background-color: #4ade80;
-  border: 2px solid #16a34a;
+  background-color: #008080;
+  border: 2px solid #41237a;
 }
 
 .task-column h2 {
-  background-color: #8b5cf6;
+  background-color: #41237a;
   color: white;
   display: inline-block;
   padding: 5px 15px;
@@ -66,32 +83,42 @@ body {
 
 .task-card {
   background-color: #e9d5ff;
-  border: 2px solid #a855f7;
+  display: flex; /* Use flexbox for easy column layout */
+  border: 1px solid #41237a;
   border-radius: 16px;
   padding: 10px 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin-bottom: 10px;
   font-family: Georgia, serif;
   font-size: 15px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  align-items: center;
 }
 
 .task-card input[type="checkbox"] {
   width: 18px;
   height: 18px;
   accent-color: #8b5cf6;
-  margin-right: 10px;
+  flex-basis: 40px; /* Fixed width for the checkbox column */
+    flex-shrink: 0; /* Prevent shrinking */
 }
 
 .task-card .title {
-  flex: 1;
+  font-weight: bold;
+  text-align: left;
+  flex-basis: 15%; /* Fixed width for the title column */
+    flex-shrink: 0;
 }
 
 .task-card .due-date {
   font-weight: bold;
-  margin-left: 10px;
+  text-align: right;
+  flex-basis: 20%; /* Fixed width for the due date column */
+    flex-shrink: 0;
+}
+
+.task-card .description {
+  flex-basis: 50%; /* Fixed width for the description column */
+    flex-shrink: 0;
 }
 
 @media (max-width: 768px) {
@@ -248,4 +275,63 @@ body {
 .new-task-form button:hover {
   background-color: #52bd60;
   transform: scale(1.05);
+}
+
+/* Add New Task Section */
+.add-task-section {
+  display: grid;
+  gap: 12px;
+  /*border-top: 2px solid #dabff3;*/
+  padding-top: 1%;
+  padding-left: 20%;
+  padding-right:20%;
+  padding-bottom: 5%;
+}
+
+.add-task-section label {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  color: #41237a;
+  padding-bottom:1%
+}
+
+.add-task-section input {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #41237a;
+  font-size: 14px;
+  text-align: center;
+}
+
+.add-task-section input:focus {
+  outline: none;
+  border-color: #a64ac9;
+  box-shadow: 0 0 3px #a64ac9;
+}
+
+.add-task-section button {
+  background-color: #008080;
+  color: white;
+  border: none;
+  padding: 1%;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 5%;
+  transition: background 0.3s;
+  font-family: "Comic Sans MS", sans-serif;
+  width: 15%;
+  align: center;
+  display: center;
+}
+
+.add-task-section button:hover {
+  background-color: #7f2db3;
+}
+
+/* Section Separation */
+.task-board + h1 {
+  /*border-top: 2px solid #dabff3;*/
+  margin-top: 5%;
+  margin-bottom: 0px;
 }
