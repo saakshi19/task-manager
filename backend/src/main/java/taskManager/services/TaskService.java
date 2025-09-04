@@ -38,4 +38,28 @@ public class TaskService {
         }
         return tasks;
     }
+
+    public Task updateTask(Task updatedTask) {
+        taskManager.repository.tables.Task existingTask = taskRepository.findById(updatedTask.getId())
+                .orElseThrow(() -> new RuntimeException("Task not found with id: " + updatedTask.getId()));
+
+        if (updatedTask.getTitle() != null) {
+            existingTask.setTitle(updatedTask.getTitle());
+        }
+        if (updatedTask.getDescription() != null) {
+            existingTask.setDescription(updatedTask.getDescription());
+        }
+        if (updatedTask.getDueDate() != null) {
+            existingTask.setDueDate(updatedTask.getDueDate());
+        }
+        if (updatedTask.getStatus() != null) {
+            existingTask.setStatus(updatedTask.getStatus());
+        }
+        if (updatedTask.getPriority() != 0) {
+            existingTask.setPriority(updatedTask.getPriority());
+        }
+        taskManager.repository.tables.Task savedTask = taskRepository.save(existingTask);
+        return taskMappers.toEntityModel(savedTask);
+    }
+
 }
